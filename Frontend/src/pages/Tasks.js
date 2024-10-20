@@ -12,7 +12,7 @@ export default function Tasks({ token, handleLogout }) {
     const fetchTasks = async () => {
       try {
         console.log('Fetching tasks with token:', token);
-        const response = await axios.get('http://localhost:5000/api/tasks', {
+        const response = await axios.get('https://todoapp-2-btbb.onrender.com/api/tasks', {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log('Fetched tasks:', response.data);
@@ -36,7 +36,7 @@ export default function Tasks({ token, handleLogout }) {
     console.log('Adding task:', newTask);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/tasks/add',
+      const response = await axios.post('https://todoapp-2-btbb.onrender.com/api/tasks/add',
         { text: newTask },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -55,7 +55,7 @@ export default function Tasks({ token, handleLogout }) {
     if (!taskToUpdate) return;
 
     try {
-      const response = await axios.put(`http://localhost:5000/api/tasks/${id}`,
+      const response = await axios.put(`https://todoapp-2-btbb.onrender.com/api/tasks/${id}`,
         { text: taskToUpdate.text, completed: taskToUpdate.completed },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -71,7 +71,7 @@ export default function Tasks({ token, handleLogout }) {
 
   const handleDeleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`,
+      await axios.delete(`https://todoapp-2-btbb.onrender.com/api/tasks/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       console.log('Task deleted:', id);
