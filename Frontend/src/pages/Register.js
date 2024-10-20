@@ -11,7 +11,7 @@ export default function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/users/register', { username, password });
+      await axios.post('https://todoapp-2-btbb.onrender.com/api/users/register', { username, password });
       alert('Registration successful. Please log in.');
       navigate('/login'); // Navigate to login after successful registration
     } catch (error) {
